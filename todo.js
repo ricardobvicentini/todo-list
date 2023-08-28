@@ -20,13 +20,13 @@ function renderTodoList() {
     // Destructuring
     /* const { name, dueDate } = todoObj; */
     const html = `
-      <div class="task">
-        <div class="task-name-date"><span>${name}</span> <span>${dueDate}</span></div> 
-        <button onclick="
-          todoList.splice(${i}, 1);
-          renderTodoList();
-        ">X</button>
-      </div>
+    <div class="task">
+      <div class="task-name-date"><span>${name}</span> <span>${dueDate}</span></div> 
+      <button onclick="
+        todoList.splice(${i}, 1);
+        renderTodoList();
+      ">X</button>
+    </div>
       `;
     todoListHTML += html;
   }
