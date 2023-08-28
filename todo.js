@@ -21,15 +21,15 @@ function renderTodoList() {
     /* const { name, dueDate } = todoObj; */
     const html = `
     <div class="task">
-      <div class="task-name-date"><span>${name}</span> <span>${dueDate}</span></div> 
-      <button onclick="
+      <div class="task-name-date"><span class="task-name">${name}</span> <span class="task-date">${dueDate}</span></div> 
+      <button class="task-btn" onclick="
         todoList.splice(${i}, 1);
         renderTodoList();
       ">X</button>
     </div>
       `;
     todoListHTML += html;
-  }
+  } 
   taskEl.innerHTML = todoListHTML;
 };
 
