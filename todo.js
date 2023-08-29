@@ -12,13 +12,34 @@ const taskEl = document.querySelector(".js-task");
 
 function renderTodoList() {
   let todoListHTML = "";
-  
-  for (let i = 0; i < todoList.length; i++) {
-    const todoObj = todoList[i];
+
+  // FOR EACH
+
+  todoList.forEach((todoObj, index) => {
     const name = todoObj.name;
     const dueDate = todoObj.dueDate;
     // Destructuring
     /* const { name, dueDate } = todoObj; */
+    const html = `
+    <div class="task">
+      <div class="task-name-date"><span class="task-name">${name}</span> <span class="task-date">${dueDate}</span></div> 
+      <button class="task-btn" onclick="
+        todoList.splice(${index}, 1);
+        renderTodoList();
+      ">X</button>
+    </div>
+      `;
+    todoListHTML += html;
+  });  
+  
+  taskEl.innerHTML = todoListHTML;
+
+};
+  
+/*   for (let i = 0; i < todoList.length; i++) {
+    const todoObj = todoList[i];
+    const name = todoObj.name;
+    const dueDate = todoObj.dueDate;
     const html = `
     <div class="task">
       <div class="task-name-date"><span class="task-name">${name}</span> <span class="task-date">${dueDate}</span></div> 
@@ -31,7 +52,7 @@ function renderTodoList() {
     todoListHTML += html;
   } 
   taskEl.innerHTML = todoListHTML;
-};
+}; */
 
 function addTodo() {
   const name = inputEl.value;
